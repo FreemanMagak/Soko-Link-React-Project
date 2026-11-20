@@ -1,0 +1,32 @@
+{
+  "produces": [
+    {
+      "id": "2",
+      "name": "Potatoes",
+      "location": "Nakuru",
+      "quantity": 200,
+      "priceperkg": 30,
+      "harvestDate": "2026-10-15",
+      "image": "/potatoes.webp"
+    },
+    {
+      "id": "3",
+      "name": "Spinach",
+      "location": "Nakuru",
+      "quantity": 200,
+      "priceperkg": 35,
+      "harvestDate": "2026-10-12",
+      "image": "/Spinach.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Maize",
+      "location": "Kapsabet",
+      "quantity": 200,
+      "priceperkg": 35,
+      "harvestDate": "2026-10-12",
+      "image": "/maize.jpg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
