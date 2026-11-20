@@ -1,6 +1,10 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function NavBar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const closeMenu = () => setIsMenuOpen(false)
+
     return (
         <header className="siteheader">
             <div className="logo">
@@ -8,16 +12,22 @@ export default function NavBar() {
                 <small className="subtitle">Know the price. Find the market</small>
             </div>
 
-            <nav className="navlinks" id="navlinks">
-                <Link to="/">Home</Link>
-                <Link to="/listing">Listings</Link>
-                <Link to="/market-price">Market Price</Link>
-                <Link to="/about">About</Link>
+            <nav className={isMenuOpen ? "navlinks show" : "navlinks"} id="navlinks">
+                <Link to="/" onClick={closeMenu}>Home</Link>
+                <Link to="/listing" onClick={closeMenu}>Listings</Link>
+                <Link to="/market-price" onClick={closeMenu}>Market Price</Link>
+                <Link to="/about" onClick={closeMenu}>About</Link>
             </nav>
 
-            <div className="header-action">
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
-            </div>
+            <button
+                className="menu-button"
+                type="button"
+                aria-controls="navlinks"
+                aria-expanded={isMenuOpen}
+                onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+            >
+                {isMenuOpen ? "Close" : "Menu"}
+            </button>
 
             <div className="button">
                 <Link className="account-link login-btn" id="login-btn" to="/login">Login</Link>

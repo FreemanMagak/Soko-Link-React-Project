@@ -1,7 +1,10 @@
 import { useState, useMemo } from "react"
 import ProduceCards from "../Components/ProduceCards"
+import { useProduce } from "../Context/ProduceProvider"
 
-export default function MarketList({ produces = [] }) {
+export default function MarketList() {
+    const { produces } = useProduce()
+
     const [searchTerm, setSearchTerm] = useState("")
     const [selectedLocation, setSelectedLocation] = useState("all")
     const [sortBy, setSortBy] = useState("default")

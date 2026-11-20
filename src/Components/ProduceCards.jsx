@@ -1,5 +1,6 @@
 
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function ProduceCards({ featuredproduce, onDelete }) {
     const [isDeleting, setIsDeleting] = useState(false)
@@ -24,7 +25,9 @@ export default function ProduceCards({ featuredproduce, onDelete }) {
                 <img src={featuredproduce.image} alt={featuredproduce.name} />
             </div>
             <div className="produce-info">
-                <h4 className="produce-type">{featuredproduce.name}</h4>
+                <h4 className="produce-type">
+                    <Link to={`/listing/${featuredproduce.id}`}>{featuredproduce.name}</Link>
+                </h4>
                 <p className="produce-location">Location: {featuredproduce.location}</p>
                 <p className="produce-price">Price Ksh: {featuredproduce.priceperkg}</p>
                 <p className="produce-date">Date: {featuredproduce.harvestDate}</p>

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ProduceCards from "../Components/ProduceCards"
+import { useProduce } from "../Context/ProduceProvider"
 
 // Default images for popular produce
 const defaultImages = {
@@ -19,7 +20,9 @@ const marketBenchmarks = {
     
 }
 
-export default function Listing({ produces = [], onAddProduce, onDeleteProduce }) {
+export default function Listing() {
+    const { produces, addProduce, deleteProduce } = useProduce()
+
     const [formData, setFormData] = useState({
         name: "",
         location: "",
@@ -70,9 +73,7 @@ export default function Listing({ produces = [], onAddProduce, onDeleteProduce }
         }
 
         try {
-            if (onAddProduce) {
-                await onAddProduce(newListing)
-            }
+            await addProduce(newListing)
             setMessageType("success")
             setFormMessage(`Success! ${newListing.name} (${newListing.quantity} kg) has been successfully listed.`)
             setFormData({
@@ -244,7 +245,7 @@ export default function Listing({ produces = [], onAddProduce, onDeleteProduce }
                             <ProduceCards
                                 key={produce.id}
                                 featuredproduce={produce}
-                                onDelete={onDeleteProduce}
+                                onDelete={deleteProduce}
                             />
                         ))}
                     </div>

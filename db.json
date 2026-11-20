@@ -26,6 +26,15 @@
       "priceperkg": 35,
       "harvestDate": "2026-10-12",
       "image": "/maize.jpg"
+    },
+    {
+      "name": "Wheat",
+      "location": "Kisumu",
+      "quantity": 40,
+      "priceperkg": 23,
+      "harvestDate": "2027-01-01",
+      "image": "https://nuttyyogi.com/cdn/shop/files/2_666a8ce9-955c-494e-b2ca-15ea117adaf3.png?v=1763623436",
+      "id": "rU6-7T0v1II"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

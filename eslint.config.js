@@ -18,4 +18,13 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    files: ['src/Context/ProduceProvider.jsx'],
+    rules: {
+      'react-refresh/only-export-components': [
+        'error',
+        { allowExportNames: ['ProduceContext', 'useProduce'] },
+      ],
+    },
+  },
 ])
